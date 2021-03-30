@@ -18,28 +18,26 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-        {SinglePost.title}
+            {props.title}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <div className='player-wrapper'>
         <ReactPlayer
           className='react-player'
-          url='https://www.youtube.com/watch?v=ysz5S6PUM-U'
+          url={`https://www.youtube.com/watch?v=${props.name}`}
           width='100%'
           height='100%'
         />
       </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
   );
 }
 function SinglePost() {
   const { movieId } = useParams();
   const [modalShow, setModalShow] = React.useState(false);
+  
 
   const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=cab1bfdcab9dc7c24e9132e4fb6c85f2&append_to_response=videos`;
   const [SinglePost, setPost] = useState(null);
@@ -95,13 +93,15 @@ function SinglePost() {
                   <h5>Average</h5>
               </div>
               <div className="average pl-2">
-              <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
+              <Button variant="primary" onClick={() => setModalShow(true)} > 
+        Trailer
       </Button>
 
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        name={SinglePost.videos.results[0].key}
+        title={SinglePost.title}
       />                      
               </div>
               </div>
