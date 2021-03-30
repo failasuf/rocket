@@ -12,6 +12,12 @@
 .progress {
   margin-bottom: 1em;
 }
+.average.pl-2.trailer svg {
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  fill: #764abc;
+}
 //styling
 $borderWidth: 7px;
 $animationTime: 1.5s;

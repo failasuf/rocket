@@ -7,6 +7,8 @@ import {Helmet} from "react-helmet";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import ReactPlayer from 'react-player';
+import { BsFillPlayFill } from "react-icons/bs";
+
 import "../Style/Detail.scss";
 function MyVerticallyCenteredModal(props) {
   return (
@@ -92,17 +94,14 @@ function SinglePost() {
               <div className="pl-2 average align-self-center">
                   <h5>Average</h5>
               </div>
-              <div className="average pl-2">
-              <Button variant="primary" onClick={() => setModalShow(true)} > 
-        Trailer
-      </Button>
-
-      <MyVerticallyCenteredModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        name={SinglePost.videos.results[0].key}
-        title={SinglePost.title}
-      />                      
+              <div className="average pl-2 trailer">
+              <BsFillPlayFill onClick={() => setModalShow(true)}/>
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                name={SinglePost.videos.results[0].key}
+                title={SinglePost.title}
+              />                      
               </div>
               </div>
               <h5 className="pt-3 pb-3">Over view</h5>
